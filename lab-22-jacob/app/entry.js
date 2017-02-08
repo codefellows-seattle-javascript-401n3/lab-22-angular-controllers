@@ -13,7 +13,7 @@ demoApp.controller('CowsayController', ['$log', CowsayController]); //CowsayCont
 
 function CowsayController($log) { //angular is taking care of dependency injection behind scenes
   let self = this;
-  self.title = 'Moooooo', //I should set a variable to 'this'. like self = this
+  self.title = 'Cows Say the Darndest Things', //I should set a variable to 'this'. like self = this
   self.history = [];
   self.list = [];
 
