@@ -27,12 +27,13 @@ function CowsayController($log) { //angular is taking care of dependency injecti
   },
 
   self.submit = function(input) { //thank you angular docs.
-    let statement = cowsay.say({text: input, f: self.currentCow});
-    self.history.push(statement);
-    return self.history;
+    self.statement = cowsay.say({text: input, f: self.currentCow});
+    self.history.push(self.statement);
+    return self.statement;
   };
 
   self.undo = function() {
-    this.history.pop();
+    self.history.pop();
+    self.statement = self.history.slice(-1)[0];
   };
 }

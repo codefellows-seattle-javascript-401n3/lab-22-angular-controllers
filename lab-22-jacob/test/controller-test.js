@@ -28,13 +28,31 @@ describe('Cowsay Controller', function() {
       });
     });
   });
+  describe('#updateCow', () => {
+    it('should return a cowfile with a given input', () => {
+      let expected = '\n' + cowsay.say({text: 'moo', f: this.cowsayCtrl.currentCow});
+      let updatedCow = this.cowsayCtrl.updateCow('moo');
+      expect(updatedCow).toEqual(expected);
+    });
+  });
+  describe('#submit', () => {
+    it('should add a cow to history', () => {
+      let expected = cowsay.say({text: 'moo', f: this.cowsayCtrl.currentCow});
+      let submittedCow = this.cowsayCtrl.submit('moo');
+      expect(submittedCow).toEqual(expected);
+      expect(this.cowsayCtrl.history[0]).toEqual(expected);
+    });
+  });
+  describe('#undo', () => {
+    it('should remove the most recent cow from the history', () => {
+      let expected = cowsay.say({text: 'moo', f: this.cowsayCtrl.currentCow});
+      let normalCow = this.cowsayCtrl.submit('moo');
+      let unexpected = this.cowsayCtrl.submit('meow');
+      expect(this.cowsayCtrl.history.length).toBe(2);
+      expect(this.cowsayCtrl.history[1]).toEqual(unexpected);
+      this.cowsayCtrl.undo();
+      expect(this.cowsayCtrl.history.length).toBe(1);
+      expect(this.cowsayCtrl.history[0]).toEqual(expected);
+    });
+  });
 });
-//
-// describe('#submit', () => {
-//   it('should add a cow to history', () => {
-//     let expected = '\n' + cowsay.say({text: 'Hello', f: this.cowsayCtrl.current})
-//     this.cowsayCtrl.text = 'Hello'
-//     this.cowsayCtrl.submit()
-//     expect(this.cowsawCtrl.newCow).to()
-//   })
-// })
