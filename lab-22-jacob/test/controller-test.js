@@ -46,7 +46,6 @@ describe('Cowsay Controller', function() {
   describe('#undo', () => {
     it('should remove the most recent cow from the history', () => {
       let expected = cowsay.say({text: 'moo', f: this.cowsayCtrl.currentCow});
-      let normalCow = this.cowsayCtrl.submit('moo');
       let unexpected = this.cowsayCtrl.submit('meow');
       expect(this.cowsayCtrl.history.length).toBe(2);
       expect(this.cowsayCtrl.history[1]).toEqual(unexpected);

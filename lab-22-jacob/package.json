@@ -8,7 +8,8 @@
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "test-watch": "./node_modules/karma/bin/karma start",
     "test": "karma start --single-run",
-    "babel": "babel ./app/entry.js -o compiled.js"
+    "babel": "babel ./app/entry.js -o compiled.js",
+    "lint": "./node_modules/eslint/bin/eslint.js app/entry.js test/controller-test.js"
   },
   "keywords": [],
   "author": "",

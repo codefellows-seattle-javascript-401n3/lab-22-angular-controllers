@@ -11,7 +11,7 @@ demoApp.controller('CowsayController', ['$log', CowsayController]); //CowsayCont
 //log is debug stuff
 //scope links us back to variables we had before
 
-function CowsayController($log) { //angular is taking care of dependency injection behind scenes
+function CowsayController() { //angular is taking care of dependency injection behind scenes
   let self = this;
   self.title = 'Cows Say the Darndest Things', //I should set a variable to 'this'. like self = this
   self.history = [];
