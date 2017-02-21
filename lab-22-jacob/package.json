@@ -6,8 +6,10 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel ./app/entry.js -o compiled.js"
+    "test-watch": "./node_modules/karma/bin/karma start",
+    "test": "karma start --single-run",
+    "babel": "babel ./app/entry.js -o compiled.js",
+    "lint": "./node_modules/eslint/bin/eslint.js app/entry.js test/controller-test.js"
   },
   "keywords": [],
   "author": "",
@@ -24,12 +26,19 @@
     "css-loader": "^0.25.0",
     "eslint": "^3.15.0",
     "html-webpack-plugin": "^2.22.0",
+    "karma-mocha-reporter": "^2.2.2",
     "node-sass": "^3.10.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.6.1",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^2.0.1",
     "webpack-dev-server": "^1.16.2"
   }
 }

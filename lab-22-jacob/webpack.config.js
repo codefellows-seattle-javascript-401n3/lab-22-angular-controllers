@@ -20,6 +20,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(eot|woff|ttf|svg).*/,
+        loader: 'url?limit=10000&name=fonts/[hash].[ext]'
       }
     ]
   }
